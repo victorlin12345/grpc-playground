@@ -1,0 +1,28 @@
+// write in Proto v3
+syntax = "proto3";
+
+// generate code will appear in `order` package
+package order;
+
+// package url
+option go_package = " github.com/victorlin12345/grpc-playground/order";
+
+
+// The order service definition.
+service Order {
+  // CreateOrder
+  rpc CreateOrder (OrderRequest) returns (OrderReply) {}
+}
+
+// The request message containing the account ID, item ID, amount.
+message OrderRequest {
+  string accountID = 1;
+  string itemID = 2;
+  int64 amount = 3;
+}
+
+// The response message containing the Orders
+message OrderReply {
+  int64  status  = 1;
+  string message = 2;
+}
